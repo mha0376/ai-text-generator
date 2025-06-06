@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مولد متن هوش مصنوعی</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>مولد متن هوش مصنوعی</h1>
+        <div class="input-group">
+            <label for="prompt">پرامپت:</label>
+            <textarea id="prompt" rows="4" placeholder="مثال: یک ربات تنها در یک شهر آینده‌نگر..."></textarea>
+        </div>
+        <div class="input-group">
+            <label for="maxTokens">حداکثر توکن‌ها:</label>
+            <input type="number" id="maxTokens" value="150" min="50" max="1000">
+        </div>
+        <div class="input-group">
+            <label for="outputType">نوع خروجی:</label>
+            <select id="outputType">
+                <option value="story">داستان</option>
+                <option value="summary">خلاصه</option>
+                <option value="analysis">تحلیل</option>
+            </select>
+        </div>
+        <button onclick="generateText()">تولید متن</button>
+        <div id="response"></div>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
