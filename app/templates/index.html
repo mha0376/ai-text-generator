@@ -1,32 +1,37 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مولد متن هوش مصنوعی</title>
+    <title>AI Text Generator</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
     <div class="container">
-        <h1>مولد متن هوش مصنوعی</h1>
-        <div class="input-group">
-            <label for="prompt">پرامپت:</label>
-            <textarea id="prompt" rows="4" placeholder="مثال: یک ربات تنها در یک شهر آینده‌نگر..."></textarea>
+        <h1>AI Text Generator</h1>
+        <form id="text-form">
+            <div class="form-group">
+                <label for="prompt">Prompt:</label>
+                <textarea id="prompt" name="prompt" rows="5" placeholder="Enter your prompt here (e.g., A lone robot in a futuristic city abandoned by humans)" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="output-type">Output Type:</label>
+                <select id="output-type" name="output_type" required>
+                    <option value="story">Story</option>
+                    <option value="summary">Summary</option>
+                    <option value="analysis">Analysis</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="max-tokens">Max Tokens:</label>
+                <input type="number" id="max-tokens" name="max_tokens" min="50" max="1000" value="150" required>
+            </div>
+            <button type="submit" class="generate-btn">Generate</button>
+        </form>
+        <div id="result" class="result">
+            <h2>Generated Text:</h2>
+            <p id="generated-text">Your generated text will appear here.</p>
         </div>
-        <div class="input-group">
-            <label for="maxTokens">حداکثر توکن‌ها:</label>
-            <input type="number" id="maxTokens" value="150" min="50" max="1000">
-        </div>
-        <div class="input-group">
-            <label for="outputType">نوع خروجی:</label>
-            <select id="outputType">
-                <option value="story">داستان</option>
-                <option value="summary">خلاصه</option>
-                <option value="analysis">تحلیل</option>
-            </select>
-        </div>
-        <button onclick="generateText()">تولید متن</button>
-        <div id="response"></div>
     </div>
     <script src="/static/script.js"></script>
 </body>
